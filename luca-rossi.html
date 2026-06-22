@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luca Rossi - Redline Racing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    a {
+      color: #e63946;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+    a:visited {
+      color: #b2323f;
+    }
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: rgba(230, 57, 70, 0.7);
+      outline: none;
+    }
+    a:focus-visible {
+      outline: 2px solid rgba(214, 178, 75, 0.6);
+      outline-offset: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 8px 16px;
+      background: rgba(214, 178, 75, 0.1);
+      border: 1px solid rgba(214, 178, 75, 0.3);
+      border-radius: 6px;
+      color: #d6b24b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .back-link:hover {
+      background: rgba(214, 178, 75, 0.2);
+      border-color: rgba(214, 178, 75, 0.5);
+    }
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: rgba(160, 24, 56, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(214, 178, 75, 0.2);
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .site-nav a:hover {
+      background: rgba(230, 57, 70, 0.2);
+      transform: translateY(-1px);
+    }
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 48px;
+      gap: 16px;
+    }
+    .profile-header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #f5f5f5;
+      letter-spacing: -0.04em;
+    }
+    .profile-header .role-badge {
+      display: inline-block;
+      background: #a01838;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .profile-header .nationality {
+      font-size: 1.2rem;
+      color: #d4d4d4;
+    }
+    section {
+      margin-top: 36px;
+      padding: 24px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #f5f5f5;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 12px;
+    }
+    section p {
+      margin: 1em 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .highlight {
+      background: rgba(214, 178, 75, 0.08);
+      border-left: 3px solid #d6b24b;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .highlight p {
+      margin: 0;
+      color: #d4d4d4;
+      font-style: italic;
+    }
+    .development-box {
+      background: rgba(230, 57, 70, 0.08);
+      border-left: 3px solid #e63946;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .development-box p {
+      margin: 0;
+      color: #d4d4d4;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .profile-header h1 {
+        font-size: 1.8rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+      .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Team</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#drivers">Drivers</a>
+    </nav>
+
+    <div class="profile-header">
+      <h1>🇮🇹 Luca Rossi</h1>
+      <div class="role-badge">Second Driver</div>
+      <div class="nationality">Italy • Age 19</div>
+    </div>
+
+    <section>
+      <h2>Driver Overview</h2>
+      <p>Luca Rossi is the second driver and rising star at Redline Racing, embodying the fearless and ambitious spirit that defines the next generation of motorsport talent. At just 19 years old, Luca has already demonstrated the raw speed and determination required to compete at the highest level. His naturally fast approach combined with strategic aggression makes him one of the most exciting talents in the driver academy.</p>
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-label">Personality</div>
+          <div class="stat-value">Fearless</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Age</div>
+          <div class="stat-value">19</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Nationality</div>
+          <div class="stat-value">🇮🇹 Italy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Role</div>
+          <div class="stat-value">Second Driver</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Driving Style</h2>
+      <p>Luca's driving style is defined by a specialist ability in late-braking manoeuvres. He has an uncanny talent for carrying speed into corners and executing overtakes that others would consider impossible. This aggressive but calculated approach has made him a fan favourite and a driver to watch on race day. His willingness to push the boundaries of car control and positioning makes him a formidable competitor.</p>
+      <div class="highlight">
+        <p>"I love the moment just before the braking point. That's where speed lives. You have to be brave, committed, and precise all at once. That's where I feel most alive."</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Career Highlight</h2>
+      <p>At just 18 years old, Luca Rossi achieved what many drivers spend years working toward: he secured Redline Racing's first podium finish. This remarkable achievement not only announced his arrival as a serious competitor but also marked a turning point for the team's overall competitiveness. The podium represented the culmination of his fearless approach and the team's confidence in his talent.</p>
+      <div class="highlight">
+        <p>First podium at 18—a breakthrough moment that changed everything for Luca and for Redline Racing.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Development Area</h2>
+      <p>Luca's fearless approach to racing occasionally crosses into territory that rivals consider overly aggressive. In wheel-to-wheel battles, his willingness to push the limits sometimes results in close calls and situations that skirt the edge of acceptability. As he matures as a driver, one of his key development areas is learning to balance raw speed and aggression with strategic patience and racecraft.</p>
+      <div class="development-box">
+        <p>Focus: Developing racecraft and understanding when to push hard versus when to conserve and strategize. The goal is channeling natural aggression into consistent, intelligent race performances.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Future Potential at Redline Racing</h2>
+      <p>Luca Rossi represents the future of Redline Racing. His combination of natural speed, fearless mentality, and willingness to learn positions him as a driver with enormous potential. Working alongside experienced first driver Alex Hart, Luca has the opportunity to develop both his racecraft and his understanding of how to extract maximum performance from the RRX-25. If he continues his trajectory and refines his approach, he could very well become one of the grid's most formidable competitors. The team is committed to nurturing his talent while helping him grow into a more complete and strategic driver.</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Redline Racing. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

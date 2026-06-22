@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Holleway - Redline Racing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    a {
+      color: #e63946;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+    a:visited {
+      color: #b2323f;
+    }
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: rgba(230, 57, 70, 0.7);
+      outline: none;
+    }
+    a:focus-visible {
+      outline: 2px solid rgba(214, 178, 75, 0.6);
+      outline-offset: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 8px 16px;
+      background: rgba(214, 178, 75, 0.1);
+      border: 1px solid rgba(214, 178, 75, 0.3);
+      border-radius: 6px;
+      color: #d6b24b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .back-link:hover {
+      background: rgba(214, 178, 75, 0.2);
+      border-color: rgba(214, 178, 75, 0.5);
+    }
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: rgba(160, 24, 56, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(214, 178, 75, 0.2);
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .site-nav a:hover {
+      background: rgba(230, 57, 70, 0.2);
+      transform: translateY(-1px);
+    }
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 48px;
+      gap: 16px;
+    }
+    .profile-header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #f5f5f5;
+      letter-spacing: -0.04em;
+    }
+    .profile-header .role-badge {
+      display: inline-block;
+      background: #a01838;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .profile-header .nationality {
+      font-size: 1.2rem;
+      color: #d4d4d4;
+    }
+    section {
+      margin-top: 36px;
+      padding: 24px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #f5f5f5;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 12px;
+    }
+    section p {
+      margin: 1em 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .highlight {
+      background: rgba(214, 178, 75, 0.08);
+      border-left: 3px solid #d6b24b;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .highlight p {
+      margin: 0;
+      color: #d4d4d4;
+      font-style: italic;
+    }
+    .development-box {
+      background: rgba(230, 57, 70, 0.08);
+      border-left: 3px solid #e63946;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .development-box p {
+      margin: 0;
+      color: #d4d4d4;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .profile-header h1 {
+        font-size: 1.8rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+      .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Team</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#drivers">Drivers</a>
+    </nav>
+
+    <div class="profile-header">
+      <h1>🇬🇧 James Holleway</h1>
+      <div class="role-badge">F2 Driver</div>
+      <div class="nationality">United Kingdom • Age 21</div>
+    </div>
+
+    <section>
+      <h2>Driver Overview</h2>
+      <p>James Holleway is an F2 driver in the Redline Racing academy, representing a different archetype of racing talent compared to his peers. While others chase headlines with aggressive pace and risk-taking, James has built his reputation on consistency, discipline, and intelligent racecraft. At 21 years old, he is quietly strengthening his case as one of the most complete drivers in the Redline programme, often overlooked but increasingly recognized by those who understand the nuances of motorsport excellence.</p>
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-label">Personality</div>
+          <div class="stat-value">Determined</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Age</div>
+          <div class="stat-value">21</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Nationality</div>
+          <div class="stat-value">🇬🇧 UK</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Role</div>
+          <div class="stat-value">F2 Driver</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Driving Style</h2>
+      <p>James's approach to racing is built on three pillars: intelligent tyre management, consistent race pace, and strong strategic awareness. Rather than relying on outright qualifying speed or aggressive overtaking, James focuses on understanding how to extract maximum performance from the car over a full race distance. His ability to manage tyre degradation and make informed strategic decisions sets him apart from drivers who rely purely on raw speed. This methodical, intelligent approach often proves more effective in competitive racing than raw pace alone.</p>
+      <div class="highlight">
+        <p>"Racing isn't just about the fastest lap. It's about being smarter than everyone else for 90 minutes. Tyres, fuel, positioning, patience—that's where races are won."</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Career Highlight</h2>
+      <p>James Holleway's most significant achievement to date is finishing runner-up in the F2 Championship after an exceptionally consistent campaign. What makes this achievement remarkable is not just the final position, but the manner in which it was achieved: by scoring points in every feature race. This level of consistency and reliability demonstrates a rare maturity and focus. While others around him celebrated individual race wins and dramatic performances, James was quietly accumulating points and proving that steady, intelligent racing can be just as—if not more—effective.</p>
+      <div class="highlight">
+        <p>F2 Championship runner-up—achieved through relentless consistency, not individual heroics. Points in every feature race.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Development Area</h2>
+      <p>If James has a weakness in his current approach to racing, it is a tendency to be overly patient when overtaking opportunities present themselves. His disciplined mindset, which serves him so well in race management, can occasionally result in missed opportunities to move up the grid when competitors make mistakes or leave openings. As he progresses in his career, learning to balance patience with opportunism—knowing when to take calculated risks—will be crucial to his development.</p>
+      <div class="development-box">
+        <p>Focus: Developing a more aggressive racecraft mindset while maintaining the discipline that defines his approach. The goal is knowing when to capitalize on opportunities without compromising strategic consistency.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Future Outlook</h2>
+      <p>While much of the spotlight within the Redline Racing driver programme has fallen on younger, more visibly aggressive talent, James Holleway has quietly built a reputation as one of the most consistent and strategically aware drivers in the lineup. Many observers and insiders within the motorsport community view him as a potential future Formula 1 driver—not because of flashy performances or headline-grabbing moments, but because of his combination of speed, consistency, and mature racecraft. The overlooked contender narrative may be working against him in terms of public profile, but it is precisely this combination of underrated consistency and strategic intelligence that often produces drivers capable of competing at the highest levels of motorsport. As he continues to develop and refine his craft, James's quiet determination and proven track record make him a genuine prospect for a future opportunity in the sport's top tier.</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Redline Racing. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

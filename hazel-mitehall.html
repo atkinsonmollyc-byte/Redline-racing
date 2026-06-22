@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazel Mitehall - Redline Racing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    a {
+      color: #e63946;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+    a:visited {
+      color: #b2323f;
+    }
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: rgba(230, 57, 70, 0.7);
+      outline: none;
+    }
+    a:focus-visible {
+      outline: 2px solid rgba(214, 178, 75, 0.6);
+      outline-offset: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 8px 16px;
+      background: rgba(214, 178, 75, 0.1);
+      border: 1px solid rgba(214, 178, 75, 0.3);
+      border-radius: 6px;
+      color: #d6b24b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .back-link:hover {
+      background: rgba(214, 178, 75, 0.2);
+      border-color: rgba(214, 178, 75, 0.5);
+    }
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: rgba(160, 24, 56, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(214, 178, 75, 0.2);
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .site-nav a:hover {
+      background: rgba(230, 57, 70, 0.2);
+      transform: translateY(-1px);
+    }
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 48px;
+      gap: 16px;
+    }
+    .profile-header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #f5f5f5;
+      letter-spacing: -0.04em;
+    }
+    .profile-header .role-badge {
+      display: inline-block;
+      background: #a01838;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .profile-header .nationality {
+      font-size: 1.2rem;
+      color: #d4d4d4;
+    }
+    section {
+      margin-top: 36px;
+      padding: 24px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #f5f5f5;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 12px;
+    }
+    section p {
+      margin: 1em 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .highlight {
+      background: rgba(214, 178, 75, 0.08);
+      border-left: 3px solid #d6b24b;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .highlight p {
+      margin: 0;
+      color: #d4d4d4;
+      font-style: italic;
+    }
+    .development-box {
+      background: rgba(230, 57, 70, 0.08);
+      border-left: 3px solid #e63946;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .development-box p {
+      margin: 0;
+      color: #d4d4d4;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .profile-header h1 {
+        font-size: 1.8rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+      .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Team</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#drivers">Drivers</a>
+    </nav>
+
+    <div class="profile-header">
+      <h1>🇨🇦 Hazel Mitehall</h1>
+      <div class="role-badge">Junior Academy Driver</div>
+      <div class="nationality">Canada • Age 17</div>
+    </div>
+
+    <section>
+      <h2>Driver Overview</h2>
+      <p>Hazel Mitehall represents a new generation of Redline Racing talent. At just 17 years old, she brings a fresh perspective to the driver academy with her curious mindset, fearless approach, and analytical approach to racing. Rather than relying solely on instinct, Hazel combines a natural racing talent with a thoughtful, methodical approach to understanding both the car and the track. Her ability to approach new challenges with both curiosity and fearlessness has already caught the attention of the Redline Racing team as a genuine long-term prospect.</p>
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-label">Personality</div>
+          <div class="stat-value">Curious</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Age</div>
+          <div class="stat-value">17</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Nationality</div>
+          <div class="stat-value">🇨🇦 Canada</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Role</div>
+          <div class="stat-value">Academy Driver</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Driving Style</h2>
+      <p>Hazel's driving style is characterized by smooth, precise inputs combined with an exceptional feel for wet-weather conditions. She has demonstrated a remarkable ability to adapt quickly to new cars and unfamiliar tracks, approaching each new challenge with analytical precision rather than trial-and-error. Her smooth inputs translate to consistent, predictable car control, which—combined with her natural wet-weather sensitivity—gives her a technical foundation that many drivers take years to develop. This combination of adaptability and technical precision has already distinguished her within the Redline Academy.</p>
+      <div class="highlight">
+        <p>"I love understanding how things work—the car, the track, the conditions. When I know why something works, I can adapt faster to anything new."</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Career Highlight</h2>
+      <p>Hazel's most significant achievement to date is winning the Redline Academy Shootout, a prestigious internal competition designed to identify and showcase the academy's brightest talent. What makes this achievement particularly impressive is that she earned this victory by setting the fastest simulator time of the entire programme. This accomplishment demonstrates not just raw speed, but also her ability to master complex systems, understand how to extract maximum performance from technology, and execute under pressure. For a 17-year-old, this achievement signals exceptional potential within the Redline Racing organization.</p>
+      <div class="highlight">
+        <p>Won the Redline Academy Shootout with the fastest simulator time of the programme—a testament to both speed and precision.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Development Area</h2>
+      <p>At 17, Hazel is still building race experience and developing consistency under the pressure of real competition. While her simulator performance and academy results have been impressive, translating that excellence into consistent real-world racing results is the natural next step in her development. She continues to build her understanding of race strategy, tire management, and how to maintain peak performance over the course of a full race distance. These are areas where experience and continued development will be crucial to her progression.</p>
+      <div class="development-box">
+        <p>Focus: Building competitive race experience and developing the consistency needed to translate simulator performance into on-track results under pressure.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Future Outlook</h2>
+      <p>Hazel Mitehall is viewed within Redline Racing as a long-term project with major potential. While many driver academies focus on short-term results, Redline recognizes in Hazel a combination of natural talent, analytical mind, and adaptability that suggests a bright future in motorsport. She represents the next generation of Redline Racing's driver academy—a generation that brings fresh perspectives and new approaches to racing excellence. As she gains experience, refines her craft, and continues to develop both as a driver and as a person, Hazel has the foundation to become a significant asset to the Redline Racing programme and potentially beyond. The organization is committed to nurturing her talent and watching her grow into one of racing's future stars.</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Redline Racing. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

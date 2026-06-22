@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News Centre - Redline Racing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    a {
+      color: #e63946;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+    a:visited {
+      color: #b2323f;
+    }
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: rgba(230, 57, 70, 0.7);
+      outline: none;
+    }
+    a:focus-visible {
+      outline: 2px solid rgba(214, 178, 75, 0.6);
+      outline-offset: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 10px 18px;
+      background: rgba(214, 178, 75, 0.1);
+      border: 1px solid rgba(214, 178, 75, 0.3);
+      border-radius: 8px;
+      color: #d6b24b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .back-link:hover {
+      background: rgba(214, 178, 75, 0.2);
+      border-color: rgba(214, 178, 75, 0.5);
+    }
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: rgba(160, 24, 56, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(214, 178, 75, 0.2);
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .site-nav a:hover {
+      background: rgba(230, 57, 70, 0.2);
+      transform: translateY(-1px);
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 900;
+      color: #e63946;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+    .page-header p {
+      margin: 16px auto 0;
+      max-width: 760px;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .news-card {
+      background: #1c1c1c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .news-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(214, 178, 75, 0.4);
+    }
+    .news-date {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #d4d4d4;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.8;
+    }
+    .news-headline {
+      margin: 0 0 14px 0;
+      color: #ffffff;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+    .news-summary {
+      margin: 0 0 18px 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      background: rgba(214, 178, 75, 0.12);
+      color: #d4d4d4;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .news-intro {
+      margin: 0 0 24px 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    @media (max-width: 840px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 620px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .news-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Team</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#drivers">Drivers</a>
+      <a href="season-2025.html">2025 Season</a>
+      <a href="news.html">News</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>News Centre</h1>
+      <p>Stay updated on Redline Racing's latest fictional headlines, from track performance to driver dynamics and technical progress.</p>
+    </div>
+
+    <p class="news-intro">The Redline Racing News Centre gathers the team's latest stories in one place, keeping the mood fast, sharp, and full of championship ambition.</p>
+
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="news-date">April 14, 2025</div>
+        <h2 class="news-headline">Hart Takes Commanding Pole as Redline Closes Gap</h2>
+        <p class="news-summary">Alex Hart delivered a statement qualifying lap to put Redline Racing on pole, proving the RRX-25 is now a serious threat at the front of the grid.</p>
+        <div class="tag-row">
+          <span class="tag">F1 Team</span>
+          <span class="tag">Qualifying</span>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">May 3, 2025</div>
+        <h2 class="news-headline">Rossi Refuses to Back Down After Tense Team Battle</h2>
+        <p class="news-summary">Luca Rossi says he will not change his aggressive racing style after another wheel-to-wheel fight with teammate Alex Hart, insisting his goal remains the World Drivers' Championship.</p>
+        <div class="tag-row">
+          <span class="tag">Driver Market</span>
+          <span class="tag">F1 Team</span>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">May 18, 2025</div>
+        <h2 class="news-headline">Bath Upgrade Package Delivers Major Step Forward</h2>
+        <p class="news-summary">Redline Racing's latest aerodynamic upgrade, developed with input from its Bath technical programme, has helped the team close the gap to Titan GP and Apex Motorsport.</p>
+        <div class="tag-row">
+          <span class="tag">Technical</span>
+          <span class="tag">Engineering</span>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">June 7, 2025</div>
+        <h2 class="news-headline">Holleway Strengthens Case for Future F1 Seat</h2>
+        <p class="news-summary">James Holleway continued his impressive F2 campaign with another consistent points finish, adding pressure to Redline's future driver decisions.</p>
+        <div class="tag-row">
+          <span class="tag">Academy</span>
+          <span class="tag">Driver Market</span>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-date">June 21, 2025</div>
+        <h2 class="news-headline">Mitehall Tops Academy Simulator Test</h2>
+        <p class="news-summary">Hazel Mitehall set the fastest time in Redline's latest academy simulator assessment, underlining her reputation as one of the programme's most exciting young prospects.</p>
+        <div class="tag-row">
+          <span class="tag">Academy</span>
+          <span class="tag">Development</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Hart - Redline Racing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    a {
+      color: #e63946;
+      text-decoration: none;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+    a:visited {
+      color: #b2323f;
+    }
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
+      text-decoration: underline;
+      text-decoration-color: rgba(230, 57, 70, 0.7);
+      outline: none;
+    }
+    a:focus-visible {
+      outline: 2px solid rgba(214, 178, 75, 0.6);
+      outline-offset: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 8px 16px;
+      background: rgba(214, 178, 75, 0.1);
+      border: 1px solid rgba(214, 178, 75, 0.3);
+      border-radius: 6px;
+      color: #d6b24b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .back-link:hover {
+      background: rgba(214, 178, 75, 0.2);
+      border-color: rgba(214, 178, 75, 0.5);
+    }
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style: none;
+    }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      background: rgba(160, 24, 56, 0.12);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(214, 178, 75, 0.2);
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .site-nav a:hover {
+      background: rgba(230, 57, 70, 0.2);
+      transform: translateY(-1px);
+    }
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 48px;
+      gap: 16px;
+    }
+    .profile-header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #f5f5f5;
+      letter-spacing: -0.04em;
+    }
+    .profile-header .role-badge {
+      display: inline-block;
+      background: #a01838;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .profile-header .nationality {
+      font-size: 1.2rem;
+      color: #d4d4d4;
+    }
+    section {
+      margin-top: 36px;
+      padding: 24px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #f5f5f5;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      border-bottom: 3px solid #e63946;
+      padding-bottom: 12px;
+    }
+    section p {
+      margin: 1em 0;
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      background: #0f0f0f;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .highlight {
+      background: rgba(214, 178, 75, 0.08);
+      border-left: 3px solid #d6b24b;
+      padding: 16px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .highlight p {
+      margin: 0;
+      color: #d4d4d4;
+      font-style: italic;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .profile-header h1 {
+        font-size: 1.8rem;
+      }
+      section h2 {
+        font-size: 1.4rem;
+      }
+      .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Team</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#drivers">Drivers</a>
+    </nav>
+
+    <div class="profile-header">
+      <h1>🇬🇧 Alex Hart</h1>
+      <div class="role-badge">First Driver</div>
+      <div class="nationality">United Kingdom • Age 24</div>
+    </div>
+
+    <section>
+      <h2>Driver Overview</h2>
+      <p>Alex Hart is the first driver and team leader at Redline Racing, bringing a wealth of experience and strategic acumen to the cockpit. Known for leadership both on and off the track, Alex has established himself as a cornerstone of the team's competitive ambitions.</p>
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-label">Personality</div>
+          <div class="stat-value">Leader</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Age</div>
+          <div class="stat-value">24</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Nationality</div>
+          <div class="stat-value">🇬🇧 UK</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Role</div>
+          <div class="stat-value">First Driver</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Driving Style</h2>
+      <p>Alex's driving style is characterized by exceptional qualifying pace and precision. Known as a "qualifying expert," Alex consistently puts the car on the front row of the grid, setting the tone for race day performance. This expertise is complemented by racecraft and consistency that keeps Redline Racing competitive through the entire season.</p>
+      <div class="highlight">
+        <p>"Qualifying is where I establish control. The perfect lap, the perfect setup—that's where the focus lies. From pole position, it's all about converting advantage into results."</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Career Highlight</h2>
+      <p>One of Alex Hart's defining moments was taking pole position on debut with Redline Racing. This remarkable achievement announced the driver's arrival at the highest level and set expectations high for the season ahead. The pole position showcased not only raw speed but also the ability to extract maximum performance from the machinery under pressure.</p>
+      <div class="highlight">
+        <p>Pole position on debut—a statement of intent that set the tone for the entire campaign.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Role at Redline Racing</h2>
+      <p>As the first driver, Alex carries the responsibility of being the lead architect of performance development. Alex works closely with the engineering team to push the boundaries of what the RRX-25 can achieve, providing feedback that shapes the direction of technical upgrades and setup evolution. Beyond driving, Alex serves as a mentor to the younger drivers in the academy, embodying the philosophy of Redline Racing: "Beyond the Redline."</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Redline Racing. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
