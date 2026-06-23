@@ -109,4 +109,4 @@ Ideas to make this project more advanced:
 ---
 
 **Built with:** HTML5 and CSS3  
-**Status:** Learning project complete and ready to explore
+**Status:** Learning project complete and ready to explore!
